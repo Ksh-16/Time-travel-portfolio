@@ -1,122 +1,66 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ProgressBar from "./components/ProgressBar";
+import PageTransition from "./components/PageTransition";
+
+import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
+import Certifications from "./pages/Certifications";
+import Experience from "./pages/Experience";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+
+// Each route is an "era": the body's data-era attribute swaps the theme
+// variables defined in styles/theme.css, and the background fades between them.
+const routes = [
+  { path: "/", era: "dashboard", element: <Dashboard /> },
+  { path: "/about", era: "about", element: <About /> },
+  { path: "/certifications", era: "certifications", element: <Certifications /> },
+  { path: "/experience", era: "experience", element: <Experience /> },
+  { path: "/projects", era: "projects", element: <Projects /> },
+  { path: "/contact", era: "contact", element: <Contact /> },
+];
+
+export default function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const current = routes.find((r) => r.path === location.pathname);
+    document.body.dataset.era = current ? current.era : "about";
+    window.scrollTo({ top: 0 });
+  }, [location.pathname]);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <ProgressBar />
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          {routes.map((r) => (
+            <Route
+              key={r.path}
+              path={r.path}
+              element={<PageTransition>{r.element}</PageTransition>}
+            />
+          ))}
+          <Route
+            path="*"
+            element={
+              <PageTransition>
+                <div className="page">
+                  <h1 className="page-title">Lost in time</h1>
+                  <p className="page-lead">This page doesn't exist in any era.</p>
+                </div>
+              </PageTransition>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
+      <Footer />
     </>
-  )
+  );
 }
-
-export default App
