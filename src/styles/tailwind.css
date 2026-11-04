@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Lets Tailwind classes use your era colors, so bg-surface, text-accent etc.
+   still change when the page's era changes. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--border);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-highlight: var(--highlight);
+  --font-display: var(--font-heading);
+  --font-sans: var(--font-body);
+}

@@ -50,11 +50,7 @@ body[data-era="contact"] {
 }
 
 /* ---------- Base ---------- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 
 html {
   scroll-behavior: smooth;
@@ -94,7 +90,12 @@ h3 {
   line-height: 1.15;
   letter-spacing: -0.01em;
 }
-
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
 a {
   color: var(--accent);
   text-decoration: none;
@@ -349,6 +350,7 @@ a:hover {
 .timeline-item ul {
   margin: 0.6rem 0 0 1.1rem;
   color: var(--text-muted);
+  list-style: disc;
 }
 
 /* ---------- Filters ---------- */
