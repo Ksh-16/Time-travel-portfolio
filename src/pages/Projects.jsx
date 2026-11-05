@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { projects, categories } from "../data/projects";
+import { Link } from "react-router-dom";
 
 export default function Projects() {
   const [active, setActive] = useState("All");
@@ -26,6 +27,10 @@ export default function Projects() {
       <div className="grid">
         {shown.map((p) => (
           <article key={p.id} className="card">
+               {p.image && (
+     <img src={p.image} alt={`${p.title} screenshot`}
+       style={{ width: "100%", borderRadius: "12px", marginBottom: "1rem" }} />
+   )}
             <p className="mono">{p.year} · {p.category}</p>
             <h3 style={{ margin: "0.4rem 0 0.6rem", fontSize: "1.7rem" }}>{p.title}</h3>
             <p style={{ color: "var(--text-muted)", marginBottom: "1rem" }}>{p.summary}</p>
@@ -35,6 +40,7 @@ export default function Projects() {
               ))}
             </div>
             <p style={{ marginTop: "0.8rem", display: "flex", gap: "1rem" }}>
+                 <Link to={`/projects/${p.id}`}>Case study →</Link>
               {p.links.live && <a href={p.links.live} target="_blank" rel="noreferrer">Live →</a>}
               {p.links.github && <a href={p.links.github} target="_blank" rel="noreferrer">GitHub →</a>}
             </p>

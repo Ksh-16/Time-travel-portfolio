@@ -9,6 +9,14 @@ export const projects = [
       "Smart India Hackathon 2026 project by Team DoraX: a procurement platform built with React, Node and PostgreSQL.",
     stack: ["React", "Node.js", "PostgreSQL", "Render"],
     links: { live: "", github: "" },
+    image: "",   // e.g. "/projects/innovprocure.png"
+  role: "Frontend developer, Team DoraX",
+  problem: "Describe the problem it solves in 1–2 sentences.",
+  highlights: [
+    "Something you built",
+    "A challenge you solved",
+    "What you learned",
+  ],
   },
   {
     id: "cafe-dashboard",
@@ -19,6 +27,14 @@ export const projects = [
       "A premium editorial-style data analysis dashboard built with Django, with a luxury café look and feel.",
     stack: ["Django", "Python", "Data Analytics"],
     links: { live: "", github: "" },
+    image: "",   // e.g. "/projects/innovprocure.png"
+  role: "Frontend developer, Team DoraX",
+  problem: "Describe the problem it solves in 1–2 sentences.",
+  highlights: [
+    "Something you built",
+    "A challenge you solved",
+    "What you learned",
+  ],
   },
   {
     id: "impactiq",

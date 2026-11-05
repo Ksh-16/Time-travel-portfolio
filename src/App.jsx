@@ -13,6 +13,7 @@ import Certifications from "./pages/Certifications";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import ProjectDetail from "./pages/ProjectDetails";
 
 // Each route is an "era": the body's data-era attribute swaps the theme
 // variables defined in styles/theme.css, and the background fades between them.
@@ -22,6 +23,7 @@ const routes = [
   { path: "/certifications", era: "certifications", element: <Certifications /> },
   { path: "/experience", era: "experience", element: <Experience /> },
   { path: "/projects", era: "projects", element: <Projects /> },
+  { path: "/projects/:id", era: "projects", element: <ProjectDetail /> },
   { path: "/contact", era: "contact", element: <Contact /> },
 ];
 
@@ -29,9 +31,12 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
-    const current = routes.find((r) => r.path === location.pathname);
-    document.body.dataset.era = current ? current.era : "about";
-    window.scrollTo({ top: 0 });
+       const current = routes.find((r) => r.path === location.pathname);
+   const era = current
+     ? current.era
+     : location.pathname.startsWith("/projects/") ? "projects" : "about";
+   document.body.dataset.era = era;
+   window.scrollTo({ top: 0, behavior: "instant" });
   }, [location.pathname]);
 
   return (
