@@ -32,7 +32,7 @@ export default function Dashboard() {
         <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
           <Link to="/projects" className="btn">View projects</Link>
           <Link to="/experience" className="btn ghost">Start the journey</Link>
-          <a href="/Kanishka_resume.pdf" download className="btn ghost">Download resume</a>
+          <a href="/Kanishka-Resume.pdf" download className="btn ghost">Download resume</a>
         </div>
       </section>
 
