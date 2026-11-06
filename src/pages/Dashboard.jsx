@@ -3,6 +3,7 @@ import { projects } from "../data/projects";
 import { certifications } from "../data/certifications";
 import { experience } from "../data/experience";
 import Typewriter from "../components/Typewriter";
+import GitHubActivity from "../components/GitHubActivity";
 
 const portals = [
   { to: "/about", year: "Year Zero", title: "About", text: "Where the journey began." },
@@ -56,6 +57,7 @@ export default function Dashboard() {
           </Link>
         ))}
       </section>
+      <GitHubActivity />
     </div>
   );
 }
