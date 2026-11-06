@@ -72,7 +72,7 @@ export default function Contact() {
       <div className="links">
         <a className="btn ghost" href={`mailto:${EMAIL}`}>Email</a>
         <a className="btn ghost" href="https://github.com/Ksh-16" target="_blank" rel="noreferrer">GitHub</a>
-        <a className="btn ghost" href="https://linkedin.com/kanishka-sharma-5933a436a" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a className="btn ghost" href="https://linkedin.com/in/kanishka-sharma-5933a436a/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
   );
