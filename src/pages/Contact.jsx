@@ -2,7 +2,7 @@ import { useState } from "react";
 
 // Replace with your Formspree endpoint (https://formspree.io) to receive messages by email.
 // Until then, the form opens the visitor's email app as a fallback.
-const FORMSPREE_URL = "";
+const FORMSPREE_URL = "https://formspree.io/f/xdeejvdy";
 const EMAIL = "k.sharma16062007@gmail.com";
 
 export default function Contact() {
@@ -39,7 +39,15 @@ export default function Contact() {
       <h1 className="page-title">Contact</h1>
       <p className="page-lead">Ready to send a message across time? I'd love to hear from you.</p>
 
-      <form className="form" onSubmit={handleSubmit}>
+         <form className="form" onSubmit={handleSubmit} onChange={() => status !== "idle" && setStatus("idle")}>
+             <input
+     type="text"
+     name="_gotcha"
+     tabIndex={-1}
+     autoComplete="off"
+     style={{ position: "absolute", left: "-9999px" }}
+     aria-hidden="true"
+   />
         <label>
           Name
           <input name="name" required />
@@ -55,14 +63,16 @@ export default function Contact() {
         <button className="btn" type="submit" disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
         </button>
-        {status === "sent" && <p>Message sent. Thank you!</p>}
-        {status === "error" && <p>Something went wrong. Please try again.</p>}
+           <p role="status" aria-live="polite">
+     {status === "sent" && "Message sent. Thank you, I'll reply soon!"}
+     {status === "error" && `Something went wrong. You can also email me at ${EMAIL}.`}
+   </p>
       </form>
 
       <div className="links">
         <a className="btn ghost" href={`mailto:${EMAIL}`}>Email</a>
-        <a className="btn ghost" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-        <a className="btn ghost" href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a className="btn ghost" href="https://github.com/Ksh-16" target="_blank" rel="noreferrer">GitHub</a>
+        <a className="btn ghost" href="https://linkedin.com/kanishka-sharma-5933a436a" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
   );
