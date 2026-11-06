@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import { certifications } from "../data/certifications";
 import { experience } from "../data/experience";
+import Typewriter from "../components/Typewriter";
 
 const portals = [
   { to: "/about", year: "Year Zero", title: "About", text: "Where the journey began." },
@@ -10,7 +11,7 @@ const portals = [
   { to: "/certifications", year: "Relics", title: "Certifications", text: "Credentials collected." },
   { to: "/contact", year: "Return Portal", title: "Contact", text: "Send a message across time." },
 ];
-
+   const roles = ["Java backend", "React frontend", "Data analytics", "Open source"];
 export default function Dashboard() {
   const stats = [
     { num: projects.length, label: "Projects" },
@@ -25,10 +26,10 @@ export default function Dashboard() {
         <h1>
           Hi, I'm <span>Kanishka</span>.
         </h1>
-        <p className="page-lead" style={{ marginTop: "1rem" }}>
-          Student developer working across Java backend, React frontend and data
-          analytics. Scroll through my timeline, one era at a time.
-        </p>
+          <p className="page-lead" style={{ marginTop: "1rem" }}>
+     Student developer into <strong><Typewriter words={roles} /></strong>.
+     Scroll through my timeline, one era at a time.
+   </p>
         <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
           <Link to="/projects" className="btn">View projects</Link>
           <Link to="/experience" className="btn ghost">Start the journey</Link>

@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProgressBar from "./components/ProgressBar";
 import PageTransition from "./components/PageTransition";
-
+import TimeWarp from "./components/TimeWarp";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Certifications from "./pages/Certifications";
@@ -42,6 +42,7 @@ export default function App() {
   return (
     <>
       <ProgressBar />
+      <TimeWarp pathname={location.pathname} />
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

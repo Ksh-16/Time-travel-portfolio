@@ -1,13 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-// "Warp" transition between pages: fade + slight blur + rise.
 export default function PageTransition({ children }) {
+  const reduce = useReducedMotion();
   return (
     <motion.main
-      initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      exit={{ opacity: 0, y: -16, filter: "blur(6px)" }}
-      transition={{ duration: 0.55, ease: "easeOut" }}
+      initial={{ opacity: 0, y: reduce ? 0 : 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: reduce ? 0.15 : 0.4, ease: "easeOut" }}
     >
       {children}
     </motion.main>

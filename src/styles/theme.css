@@ -424,3 +424,14 @@ a:hover {
   gap: 1rem;
   margin-top: 2rem;
 }
+.cursor {
+  color: var(--accent);
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  to { visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; }
+}
