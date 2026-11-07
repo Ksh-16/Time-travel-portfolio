@@ -13,13 +13,24 @@ const story = [
 export default function About() {
   return (
     <div className="page">
-      <p className="mono">Year zero</p>
-      <h1 className="page-title">About me</h1>
-      <p className="page-lead">
-        I'm Kanishka, a student building early career experience in software
-        engineering and data analytics. I like turning ideas into clean,
-        working products, and I learn best by building.
-      </p>
+            <div className="about-intro">
+        <img
+          className="about-photo"
+          src="/profile_img.jpeg"
+          alt="Portrait of Kanishka"
+          width="200"
+          height="200"
+        />
+        <div>
+          <p className="mono">Year zero</p>
+          <h1 className="page-title">About me</h1>
+          <p className="page-lead">
+            I'm Kanishka, a student building early career experience in software
+            engineering and data analytics. I like turning ideas into clean,
+            working products, and I learn best by building.
+          </p>
+        </div>
+      </div>
 
       <div className="timeline">
         {story.map((s) => (
