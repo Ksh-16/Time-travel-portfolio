@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { to: "/", label: "Dashboard" },
@@ -18,14 +19,8 @@ export default function Navbar() {
       <NavLink to="/" className="brand" onClick={() => setOpen(false)}>
         Kanishka
       </NavLink>
-      <button
-        className="menu-toggle"
-        aria-label="Toggle menu"
-        aria-expanded={open}
-        onClick={() => setOpen((o) => !o)}
-      >
-        {open ? "Close" : "Menu"}
-      </button>
+      
+        
       <ul className={open ? "open" : ""}>
         {links.map((l) => (
           <li key={l.to}>
@@ -40,6 +35,18 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
+               <div className="nav-actions">
+           <ThemeToggle />
+           <button
+             className="menu-toggle"
+             aria-label="Toggle menu"
+             aria-expanded={open}
+             onClick={() => setOpen((o) => !o)}
+           >
+             {open ? "Close" : "Menu"}
+           </button>
+         </div>
+       
     </nav>
   );
 }

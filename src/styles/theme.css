@@ -463,3 +463,90 @@ a:hover {
     height: 200px;
   }
 }
+/* ---------- Light mode: Latte Cream ---------- */
+:root {
+  color-scheme: dark;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fbf6ee;
+  --surface: #f1e7d8;
+  --border: #e0d0b8;
+  --text: #4a3b32;
+  --text-muted: #74645a;
+  --accent: #a8694f;
+  --highlight: #9a7430;
+  --shadow: 0 10px 30px rgba(59, 47, 42, 0.08);
+}
+/* Per-page accents in light mode (these must restate the era colors,
+   because the dark era rules above are set on <body>). */
+html[data-theme="light"] body[data-era="dashboard"] {
+  --bg: #fbf6ee;
+  --surface: #f1e7d8;
+  --border: #e0d0b8;
+  --accent: #a8694f;
+}
+html[data-theme="light"] body[data-era="about"] {
+  --bg: #faf3ea;
+  --surface: #f0e4d4;
+  --border: #e0d0b8;
+  --accent: #a8694f;
+}
+html[data-theme="light"] body[data-era="experience"] {
+  --bg: #f8efe2;
+  --surface: #eddfcb;
+  --border: #dcc9ad;
+  --accent: #9c6240;
+}
+html[data-theme="light"] body[data-era="projects"] {
+  --bg: #f6f3e9;
+  --surface: #ebe6d3;
+  --border: #d8d0b6;
+  --accent: #66753f;
+}
+html[data-theme="light"] body[data-era="certifications"] {
+  --bg: #f8f0e0;
+  --surface: #eee0c6;
+  --border: #dccaa6;
+  --accent: #8f6a24;
+}
+html[data-theme="light"] body[data-era="contact"] {
+  --bg: #fbf1ec;
+  --surface: #f2e2db;
+  --border: #e3cbc1;
+  --accent: #b0605f;
+}
+
+/* ---------- Theme toggle button ---------- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(15deg);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+@media (min-width: 761px) {
+  .navbar .nav-actions {
+    margin-left: 1.2rem;
+  }
+}
