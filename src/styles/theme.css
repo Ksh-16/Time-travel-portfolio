@@ -1,23 +1,5 @@
-/* ---------- Nude Time-Travel Theme ---------- */
+/* ---------- Dark Time-Travel Theme ---------- */
 :root {
-  --bg: #f5ede3;
-  --surface: #eadccb;
-  --border: #d4bfa6;
-  --text: #3b2f2a;
-  --text-muted: #6f5f52;
-  --accent: #b9785f;
-  --highlight: #c9a66b;
-
-  --font-heading: "Cormorant Garamond", Georgia, serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-mono: "Space Mono", ui-monospace, monospace;
-
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(59, 47, 42, 0.08);
-}
-
-/* Per-page / per-era overrides (set on <body data-era="...">) */
-body[data-era="dashboard"] {
   --bg: #2e2622;
   --surface: #3b312c;
   --border: #54463e;
@@ -25,28 +7,48 @@ body[data-era="dashboard"] {
   --text-muted: #b8a595;
   --accent: #c9a66b;
   --highlight: #e0c28c;
+
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --radius: 16px;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
+
+/* Per-page / per-era overrides (set on <body data-era="...">).
+   Every page is dark; each era shifts the background slightly
+   and has its own accent color. */
+body[data-era="dashboard"] {
+  --bg: #2e2622;
+  --surface: #3b312c;
+  --accent: #c9a66b;
+}
 body[data-era="about"] {
-  --bg: #f5ede3;
-  --accent: #b9785f;
+  --bg: #2b2320;
+  --surface: #382d28;
+  --accent: #d4906f;
 }
 body[data-era="experience"] {
-  --bg: #efe3d2;
-  --accent: #a8745a;
+  --bg: #30271f;
+  --surface: #3d3228;
+  --accent: #cf9468;
 }
 body[data-era="projects"] {
-  --bg: #f2e8dc;
-  --accent: #8f9a7e;
+  --bg: #272721;
+  --surface: #34332b;
+  --border: #4d4c40;
+  --accent: #a9b58f;
 }
 body[data-era="certifications"] {
-  --bg: #e8d8c4;
-  --surface: #dcc9b0;
-  --accent: #b08d57;
+  --bg: #2f2820;
+  --surface: #3d342a;
+  --accent: #d6b06a;
 }
 body[data-era="contact"] {
-  --bg: #f1e1d6;
-  --accent: #c98f82;
+  --bg: #2f2423;
+  --surface: #3d2f2d;
+  --accent: #dba094;
 }
 
 /* ---------- Base ---------- */
