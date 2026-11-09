@@ -12,7 +12,7 @@ const portals = [
   { to: "/certifications", year: "Relics", title: "Certifications", text: "Credentials collected." },
   { to: "/contact", year: "Return Portal", title: "Contact", text: "Send a message across time." },
 ];
-   const roles = ["Java backend", "React frontend", "Data analytics", "Open source"];
+   const roles = ["React frontend", "Data analytics", "Open source"];
 export default function Dashboard() {
   const stats = [
     { num: projects.length, label: "Projects" },
