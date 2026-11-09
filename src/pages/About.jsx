@@ -1,12 +1,14 @@
 const skills = {
-  Backend: ["Java", "Spring Boot", "Node.js", "Django"],
+  Backend: ["Java", "Node.js", "Django"],
   Frontend: ["React", "JavaScript", "HTML & CSS"],
-  Data: ["Python", "Data Analytics", "PostgreSQL"],
+  Data: ["Python", "Data Analytics", "PostgreSQL", "MySql"],
+  Languages: ["Java", "C++", "Python", "C"],
 };
 
 const story = [
-  { year: "The spark", text: "Started learning software engineering through structured programs and virtual job simulations." },
-  { year: "Building", text: "Shipped projects across stacks: a hackathon platform, a Django dashboard, and a Spring Boot sandbox." },
+  { year: "Era I · The Curious Student", text: "A school student who loved asking how things work. I took part in several science fair competitions, got selected at the state level, and attended a personality development camp that built my confidence and communication." },
+  { year: "Era II · The Coding Spark", text: "Then I found programming and started my coding journey. From the very start I took part in hackathons, learning through structured programs and virtual job simulations and shipping projects across stacks: a financial knowledge platform, a Django clone project." },
+  { year: "Era III · Taking the Lead", text: "I stepped into positions of responsibility, joining my college's GDG community as a DSA lead to guide fellow members, and started applying for internships." },
   { year: "Next", text: "Contributing to open source and growing into a backend-focused software engineer with strong data skills." },
 ];
 
