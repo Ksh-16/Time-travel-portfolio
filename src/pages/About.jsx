@@ -24,7 +24,7 @@ const education = [
   {
     level: "School",
     name: "MCLSBM",
-    detail: "Primary and high school education",
+    detail: "Secondary and high school education",
     note: "",
     period: "2021-2025",
     scores: [
