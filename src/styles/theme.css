@@ -1009,3 +1009,39 @@ html[data-theme="light"] .form-error {
     stroke-dashoffset: 0;
   }
 }
+
+/* ---------- Dashboard hero: 3D scene behind the text ---------- */
+/* the full-width canvas must not cause sideways scrolling */
+body:has(.dashboard) {
+  overflow-x: clip;
+}
+.hero-stage {
+  position: relative;
+  min-height: min(78vh, 720px);
+}
+/* full-width canvas that reaches up under the navbar and fades out at the bottom */
+.hero-canvas {
+  position: absolute;
+  top: -7rem;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 28px var(--bg);
+}
+.hero-content h1 {
+  margin-top: 1.2rem;
+}
+@media (max-width: 760px) {
+  .hero-canvas {
+    opacity: 0.55;
+  }
+}
