@@ -1045,3 +1045,120 @@ body:has(.dashboard) {
     opacity: 0.55;
   }
 }
+
+/* Paste this at the very end of src/styles/theme.css */
+
+/* ---------- About page: Portal intro (Contact-page style) ---------- */
+.about {
+  position: relative;
+  overflow-x: clip;
+}
+.ab-top {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 4rem;
+  align-items: center;
+}
+.ab-facts {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 470px;
+  margin-top: 1.8rem;
+}
+.ab-facts .channel-text strong {
+  white-space: normal;
+}
+
+/* portrait card: the glowing rotating border from the Contact page, with portal rings behind */
+.ab-photo-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  justify-self: center;
+}
+.about-rings {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  z-index: 0;
+}
+.ab-photo-wrap .transmit {
+  z-index: 1;
+}
+.ab-portrait {
+  border-radius: 21px;
+  background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+.ab-portrait-img {
+  aspect-ratio: 4 / 4.4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.ab-portrait-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  display: block;
+}
+.ab-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.ab-caption b {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* skills and education as icon cards */
+.ab-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+.channel.is-top {
+  align-items: flex-start;
+}
+.channel.is-top .channel-icon {
+  margin-top: 0.15rem;
+}
+.ab-ctext {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  line-height: 1.35;
+}
+.ab-ctext strong {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+.ab-ctext small {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 920px) {
+  .ab-top {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+  .ab-grid2 {
+    grid-template-columns: 1fr;
+  }
+  .about-rings {
+    width: 440px;
+    height: 440px;
+    opacity: 0.6;
+  }
+}
